@@ -39,7 +39,9 @@ export function deposit(amount, currency) {
 		);
 
 		const data = await res.json();
-		console.log(data);
+		const converted = data.rates.USD;
+
+		dispatch({ type: "account/deposit", payload: converted });
 
 		// return action
 	};
